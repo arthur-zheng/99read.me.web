@@ -1,15 +1,14 @@
-// import Image from "next/image";
+import BookSummaryList from "./components/bookSummaryList";
+import { mockBookSummaryList } from "./mockResponse";
+import Filter from "./components/filter";
+import Footer from "./components/footer";
 
-export default function Home() {
+export default async function Home() {
   return (
-    <main className="">
-      <header className="relative mx-auto">
-        <div className="mx-auto flex xs:items-center pt-8 px-[20px]">
-          <div className="flex w-100">
-            <h1 className="text-2xl font-bold">久久讀書</h1>
-          </div>
-        </div>
-      </header>
+    <main>
+      <Filter />
+      <BookSummaryList bookSummaries={mockBookSummaryList} />
+      <Footer />
     </main>
   );
 }
