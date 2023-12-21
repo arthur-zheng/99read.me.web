@@ -38,22 +38,26 @@ const BookSummaryList: React.FC<BookListProps> = ({ bookSummaries }) => {
           /> */}
           {/* DO NOT DELETE */}
           <div className="pl-6 py-4 flex-auto">
-            <div className="flex px-2 items-center">
+            <div className="flex px-2 items-end">
               <div className="flex-auto text-xl py-2">
                 <span className="text-2xl font-semibold">
                   {bookSummary.title}
                 </span>
                 <span className="pl-2">{` (${bookSummary.author})`}</span>
               </div>
-              {bookSummary.tags.map((tag, index) => (
+              {bookSummary.tags.map((tag, index, arr) => (
                 <span className="font-bold inline-block pl-2 py-2" key={index}>
                   {tag}
+                  {index !== arr.length - 1 && ","}
                 </span>
               ))}
             </div>
             <p className="p-2 text-lg text-justify">
               {bookSummary.summary}
-              <Link className="underline" href={`/book/${bookSummary.id}`}>
+              <Link
+                className="underline ml-2 border-black border-1"
+                href={`/book/${bookSummary.id}`}
+              >
                 詳情
               </Link>
             </p>
