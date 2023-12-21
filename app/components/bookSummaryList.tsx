@@ -1,7 +1,9 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 interface BookSummary {
+  id: string;
   title: string;
   author: string;
   cover: string;
@@ -46,6 +48,7 @@ const BookSummaryList: React.FC<BookListProps> = ({ bookSummaries }) => {
               ))}
             </div>
             <p className="p-2 text-lg">{bookSummary.summary}</p>
+            <Link href={`/book/${bookSummary.id}`}>继续阅读</Link>
           </div>
         </div>
       ))}

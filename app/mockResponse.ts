@@ -1,5 +1,6 @@
 export const mockBookSummaryList = [
   {
+    id: "0001",
     title: "玉龍",
     author: "主攻",
     cover: "/01.jpg",
@@ -13,6 +14,7 @@ export const mockBookSummaryList = [
     liked: "1624",
   },
   {
+    id: "0002",
     title: "南有故里",
     author: "花不南",
     cover: "/02.jpg",
@@ -26,6 +28,7 @@ export const mockBookSummaryList = [
     liked: "1624",
   },
   {
+    id: "0003",
     title: "穿成長公主的絕命渣A",
     author: "胖大蓋兒",
     cover: "/03.jpg",
@@ -39,6 +42,7 @@ export const mockBookSummaryList = [
     liked: "1624",
   },
   {
+    id: "0004",
     title: "獻給魔鬼的禮物",
     author: "晴時有雨",
     cover: "/04.jpg",
@@ -52,6 +56,7 @@ export const mockBookSummaryList = [
     liked: "1624",
   },
   {
+    id: "0005",
     title: "千秋夢",
     author: "流鸢長凝",
     cover: "/05.jpg",

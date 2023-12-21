@@ -23,22 +23,28 @@ const ranks = ["全部", "週榜", "月榜", "最人氣", "經典"];
 
 const Filter = () => {
   return (
-    <>
-      <div className="flex">
+    <div className="border-black border-b-1">
+      <div className="flex border-black border-b-2">
         {categories.map((category, index) => (
-          <button className="p-2" key={index}>
+          <button
+            className="py-3 px-4 border-r-[1px] border-black font-semibold hover:bg-black hover:text-white"
+            key={index}
+          >
             {category}
           </button>
         ))}
       </div>
       <div className="flex">
         {ranks.map((rank, index) => (
-          <button className="p-2" key={index}>
+          <button
+            className="py-3 px-6 border-r-[1px] border-black font-semibold hover:bg-black hover:text-white"
+            key={index}
+          >
             {rank}
           </button>
         ))}
       </div>
-    </>
+    </div>
   );
 };
 

@@ -7,7 +7,14 @@ export default async function Home() {
   return (
     <main>
       <Filter />
-      <BookSummaryList bookSummaries={mockBookSummaryList} />
+      <BookSummaryList
+        bookSummaries={[
+          ...mockBookSummaryList,
+          ...mockBookSummaryList.sort(() => 0.5 - Math.random()),
+          ...mockBookSummaryList.sort(() => 0.5 - Math.random()),
+          ...mockBookSummaryList.sort(() => 0.5 - Math.random()),
+        ]}
+      />
       <Footer />
     </main>
   );
