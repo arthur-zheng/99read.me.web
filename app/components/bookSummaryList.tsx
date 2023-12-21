@@ -26,7 +26,7 @@ const BookSummaryList: React.FC<BookListProps> = ({ bookSummaries }) => {
       {bookSummaries.map((bookSummary, index) => (
         <div
           key={index}
-          className="flex border-t-2 border-black last:border-b-2"
+          className="flex border-t-2 border-black last:border-b-2 pr-6"
         >
           <Image
             width={430}
@@ -47,7 +47,7 @@ const BookSummaryList: React.FC<BookListProps> = ({ bookSummaries }) => {
                 </span>
               ))}
             </div>
-            <p className="p-2 text-lg">{bookSummary.summary}</p>
+            <p className="p-2 text-lg text-justify">{bookSummary.summary}</p>
             <Link href={`/book/${bookSummary.id}`}>继续阅读</Link>
           </div>
         </div>
