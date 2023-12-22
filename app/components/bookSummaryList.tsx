@@ -6,6 +6,7 @@ interface BookSummary {
   id: string;
   title: string;
   author: string;
+  authorId: string;
   cover: string;
   summary: string;
   tags: string[];
@@ -40,10 +41,16 @@ const BookSummaryList: React.FC<BookListProps> = ({ bookSummaries }) => {
           <div className="pl-6 py-4 flex-auto">
             <div className="flex px-2 items-end">
               <div className="flex-auto text-xl py-2">
-                <span className="text-2xl font-semibold">
+                <Link
+                  className="text-2xl font-semibold hover:underline"
+                  href={`/book/${bookSummary.id}`}
+                >
                   {bookSummary.title}
-                </span>
-                <span className="pl-2">{` (${bookSummary.author})`}</span>
+                </Link>
+                <Link
+                  className="pl-2 hover:underline"
+                  href={`/author/${bookSummary.authorId}`}
+                >{` (${bookSummary.author})`}</Link>
               </div>
               {bookSummary.tags.map((tag, index, arr) => (
                 <span className="font-bold inline-block pl-2 py-2" key={index}>
