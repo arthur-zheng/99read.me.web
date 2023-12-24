@@ -33,16 +33,22 @@ const Filter = () => {
   const [categorySelection, setCategorySelection] = useState(["quanbu"]);
   const [rankSelection, setRankSelection] = useState("quanbu");
 
+  const toggle = (arr: string[], val: string): string[] => {
+    if (arr.includes(val))
+      return [
+        ...arr.slice(0, arr.indexOf(val)),
+        ...arr.slice(arr.indexOf(val) + 1),
+      ];
+    else return [...arr, val];
+  };
+
   const handleCategoryButtonClick = (value: string) => {
-    const index = categorySelection.indexOf(value);
-    if (index === -1) {
-      setCategorySelection([...categorySelection, value]);
-    } else {
-      setCategorySelection([
-        ...categorySelection.slice(0, index),
-        ...categorySelection.slice(index + 1),
-      ]);
-    }
+    // If selected quanbu already, replace it with first category
+    if (categorySelection.includes("quanbu")) setCategorySelection([value]);
+    // No quanbu is selected, but clicking quanbu will cancel all other selected categories
+    else if (value === "quanbu") setCategorySelection(["quanbu"]);
+    // No quanbu is envolved, simply toggle the ordinary category
+    else setCategorySelection(toggle(categorySelection, value));
     // TODO: update route
   };
 
