@@ -1,7 +1,6 @@
 import BookSummaryList from "./components/bookSummaryList";
 import { mockBookSummaryList } from "./mockResponse";
 import Filter from "./components/filter";
-import Footer from "./components/footer";
 
 export default async function Home() {
   return (
@@ -15,7 +14,6 @@ export default async function Home() {
           ...mockBookSummaryList,
         ].sort(() => 0.5 - Math.random())}
       />
-      <Footer />
     </main>
   );
 }
