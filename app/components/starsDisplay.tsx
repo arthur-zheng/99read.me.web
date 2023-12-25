@@ -6,8 +6,8 @@ const StarsDisplay = ({ count = 0 }) => {
   for (let i = 0; i < count; i++) {
     stars.push(
       <svg
-        width="25"
-        height="25"
+        width="20"
+        height="20"
         className="inline"
         viewBox="0 0 38 35"
         fill="none"
