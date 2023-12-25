@@ -8,7 +8,7 @@ const config: Config = {
   ],
   theme: {
     colors: {
-      paper: "f5fafa",
+      paper: "#FAFAF5",
     },
     extend: {
       backgroundImage: {
