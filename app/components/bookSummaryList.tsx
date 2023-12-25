@@ -1,6 +1,7 @@
 import React from "react";
-import Image from "next/image";
+// import Image from "next/image";
 import Link from "next/link";
+import StarsDisplay from "./starsDisplay";
 
 interface BookSummary {
   id: string;
@@ -14,14 +15,18 @@ interface BookSummary {
   uploadDate: string;
   publishedDate: string;
   lastUpdateDate: string;
-  liked: string;
+  rating: string;
 }
 
 interface BookListProps {
   bookSummaries: BookSummary[];
 }
 
+// fetch based on url
+
 const BookSummaryList: React.FC<BookListProps> = ({ bookSummaries }) => {
+  // listening to url change
+
   return (
     <div>
       {bookSummaries.map((bookSummary, index) => (
@@ -40,7 +45,7 @@ const BookSummaryList: React.FC<BookListProps> = ({ bookSummaries }) => {
           {/* DO NOT DELETE */}
           <div className="pl-6 py-4 flex-auto">
             <div className="flex px-2 items-end">
-              <div className="flex-auto text-xl py-2">
+              <div className="flex flex-auto text-xl py-2 items-center">
                 <Link
                   className="text-2xl font-semibold hover:underline"
                   href={`/book/${bookSummary.id}`}
@@ -51,6 +56,7 @@ const BookSummaryList: React.FC<BookListProps> = ({ bookSummaries }) => {
                   className="pl-2 hover:underline"
                   href={`/author/${bookSummary.authorId}`}
                 >{` (${bookSummary.author})`}</Link>
+                <StarsDisplay count={parseInt(bookSummary.rating)} />
               </div>
               {bookSummary.tags.map((tag, index, arr) => (
                 <span className="font-bold inline-block pl-2 py-2" key={index}>
@@ -63,9 +69,10 @@ const BookSummaryList: React.FC<BookListProps> = ({ bookSummaries }) => {
               {bookSummary.summary}
               <Link
                 className="underline ml-2 border-black border-1"
+                target="_blank"
                 href={`/book/${bookSummary.id}`}
               >
-                詳情
+                開始閱讀↗
               </Link>
             </p>
           </div>

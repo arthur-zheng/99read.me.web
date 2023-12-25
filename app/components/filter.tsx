@@ -49,12 +49,12 @@ const Filter = () => {
     else if (value === "quanbu") setCategorySelection(["quanbu"]);
     // No quanbu is envolved, simply toggle the ordinary category
     else setCategorySelection(toggle(categorySelection, value));
-    // TODO: update route
+    // TODO: update route to trigger re-fetch in parent
   };
 
   const handleRankButtonClick = (value: string) => {
     setRankSelection(value);
-    // TODO: update route
+    // TODO: update route to trigger re-fetch in parent
   };
 
   return (
