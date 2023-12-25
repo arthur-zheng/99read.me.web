@@ -43,12 +43,15 @@ const Filter = () => {
   };
 
   const handleCategoryButtonClick = (value: string) => {
+    // Using simplified logic
+    setCategorySelection([value]);
+
     // If selected quanbu already, replace it with first category
-    if (categorySelection.includes("quanbu")) setCategorySelection([value]);
+    // if (categorySelection.includes("quanbu")) setCategorySelection([value]);
     // No quanbu is selected, but clicking quanbu will cancel all other selected categories
-    else if (value === "quanbu") setCategorySelection(["quanbu"]);
+    // else if (value === "quanbu") setCategorySelection(["quanbu"]);
     // No quanbu is envolved, simply toggle the ordinary category
-    else setCategorySelection(toggle(categorySelection, value));
+    // else setCategorySelection(toggle(categorySelection, value));
     // TODO: update route to trigger re-fetch in parent
   };
 
