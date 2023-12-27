@@ -23,7 +23,7 @@ export const Toggle: React.FC<ToggleProps> = ({
   // This is to make sure when uncheck a item without pointer leaves, the button is in uncheck state.
   useEffect(() => {
     let newCss = baseCss;
-    if (!isActive && isHover) newCss += " hover:bg-black hover:text-white";
+    if (!isActive && isHover) newCss += " hover:bg-neutral-300";
     if (isActive) {
       newCss += " text-white bg-black";
     } else newCss += " text-black bg-transparent";

@@ -6,8 +6,10 @@ import StarsDisplay from "./starsDisplay";
 interface BookSummary {
   id: string;
   title: string;
-  author: string;
-  authorId: string;
+  author: {
+    name: string;
+    id: string;
+  };
   cover: string;
   summary: string;
   tags: string[];
@@ -54,8 +56,8 @@ const BookSummaryList: React.FC<BookListProps> = ({ bookSummaries }) => {
                 </Link>
                 <Link
                   className="pl-2 hover:underline"
-                  href={`/author/${bookSummary.authorId}`}
-                >{` (${bookSummary.author})`}</Link>
+                  href={`/author/${bookSummary.author.id}`}
+                >{` (${bookSummary.author.name})`}</Link>
                 <StarsDisplay count={parseInt(bookSummary.rating)} />
               </div>
               {bookSummary.tags.map((tag, index, arr) => (
