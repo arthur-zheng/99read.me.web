@@ -17,6 +17,7 @@ const categories = [
   { tag: "軍事", value: "junshi" },
   { tag: "生活", value: "shenghuo" },
   { tag: "學習", value: "xuexi" },
+  { tag: "系統", value: "xitong" },
   { tag: "文學", value: "wenxue" },
   { tag: "其它", value: "qita" },
 ];
