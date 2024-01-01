@@ -34,14 +34,14 @@ const Filter = () => {
   const [categorySelection, setCategorySelection] = useState(["quanbu"]);
   const [rankSelection, setRankSelection] = useState("quanbu");
 
-  const toggle = (arr: string[], val: string): string[] => {
-    if (arr.includes(val))
-      return [
-        ...arr.slice(0, arr.indexOf(val)),
-        ...arr.slice(arr.indexOf(val) + 1),
-      ];
-    else return [...arr, val];
-  };
+  // const toggle = (arr: string[], val: string): string[] => {
+  //   if (arr.includes(val))
+  //     return [
+  //       ...arr.slice(0, arr.indexOf(val)),
+  //       ...arr.slice(arr.indexOf(val) + 1),
+  //     ];
+  //   else return [...arr, val];
+  // };
 
   const handleCategoryButtonClick = (value: string) => {
     // Using simplified logic

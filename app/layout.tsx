@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "./components/header";
 import Footer from "./components/footer";
-import Script from "next/script";
+// import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,10 +27,10 @@ export default function RootLayout({
         <Footer />
       </body>
       {/* Google tag (gtag.js) */}
-      <Script
+      {/* <Script
         src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GA_MEASUREMENT_ID}`}
-      />
-      <Script id="google-analytics">
+      /> */}
+      {/* <Script id="google-analytics">
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
@@ -38,7 +38,7 @@ export default function RootLayout({
  
           gtag('config', ${process.env.GA_MEASUREMENT_ID});
         `}
-      </Script>
+      </Script> */}
     </html>
   );
 }
