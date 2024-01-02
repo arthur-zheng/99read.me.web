@@ -1,34 +1,30 @@
 import React from "react";
 // import Image from "next/image";
+// import StarsDisplay from "./starsDisplay";
 import Link from "next/link";
-import StarsDisplay from "./starsDisplay";
 
 interface BookSummary {
-  id: string;
+  _id: string;
   title: string;
-  author: {
-    name: string;
-    id: string;
-  };
-  cover: string;
   summary: string;
   tags: string[];
-  uploader: string;
-  uploadDate: string;
-  publishedDate: string;
-  lastUpdateDate: string;
-  rating: string;
+  author: string;
+  category: string;
+  chapters: {
+    title: string;
+    chapterId: string;
+    content: string[];
+  }[];
+  completed: boolean;
+  // rating: string;
 }
 
 interface BookListProps {
   bookSummaries: BookSummary[];
 }
 
-// fetch based on url
-
 const BookSummaryList: React.FC<BookListProps> = ({ bookSummaries }) => {
   // listening to url change
-
   return (
     <div>
       {bookSummaries.map((bookSummary, index) => (
@@ -47,32 +43,44 @@ const BookSummaryList: React.FC<BookListProps> = ({ bookSummaries }) => {
           {/* DO NOT DELETE */}
           <div className="pl-6 py-4 flex-auto">
             <div className="flex px-2 items-end">
-              <div className="flex flex-auto text-xl py-2 items-center">
-                <Link
-                  className="text-2xl font-semibold hover:underline"
-                  href={`/book/${bookSummary.id}`}
-                >
-                  {bookSummary.title}
-                </Link>
-                <Link
-                  className="pl-2 hover:underline"
-                  href={`/author/${bookSummary.author.id}`}
-                >{` (${bookSummary.author.name})`}</Link>
-                <StarsDisplay count={parseInt(bookSummary.rating)} />
+              <div className="flex flex-auto text-xl pt-2 flex-col">
+                <div>
+                  <Link
+                    className="text-3xl font-semibold hover:underline"
+                    href={`/book/${bookSummary._id}`}
+                  >
+                    {bookSummary.title}
+                  </Link>
+                  <span>{bookSummary.completed ? "（完結）" : "（連載）"}</span>
+                  <span></span>
+                  {/* TODO: Author page */}
+                  {/* <Link
+                    className="pl-2 hover:underline"
+                    href={`/author/${bookSummary.author}`}
+                  >{` (${bookSummary.author})`}</Link> */}
+                </div>
+                <div>
+                  {bookSummary.chapters.length}
+                  {"章 "}
+                  {/* TODO: Rating */}
+                  {/* <StarsDisplay count={parseInt("5")} /> */}
+                  {bookSummary.category}{" "}
+                  {bookSummary.tags.length !== 0 && " | "}
+                  {bookSummary.tags.map((tag, index, arr) => (
+                    <span className="inline-block py-2" key={index}>
+                      {tag}
+                      {index !== arr.length - 1 && ","}
+                    </span>
+                  ))}
+                </div>
               </div>
-              {bookSummary.tags.map((tag, index, arr) => (
-                <span className="font-bold inline-block pl-2 py-2" key={index}>
-                  {tag}
-                  {index !== arr.length - 1 && ","}
-                </span>
-              ))}
             </div>
-            <p className="p-2 text-lg text-justify">
+            <p className="p-2 pt-0 text-lg text-justify">
               {bookSummary.summary}
               <Link
                 className="underline ml-2 border-black border-1"
                 target="_blank"
-                href={`/book/${bookSummary.id}`}
+                href={`/book/${bookSummary._id}/chapter/${bookSummary.chapters[0].chapterId}`}
               >
                 開始閱讀↗
               </Link>
