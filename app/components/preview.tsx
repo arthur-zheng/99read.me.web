@@ -47,6 +47,25 @@ const ChapterButon = ({
   );
 };
 
+const FlowtingButtons = ({
+  bookId,
+  chapterId,
+}: {
+  bookId: string;
+  chapterId: string;
+}) => {
+  return (
+    <Link
+      className="items-center fixed bottom-0 w-full sm:hidden"
+      target="_blank"
+      href={`/book/${bookId}/chapter/${chapterId}`}
+    >
+      <button className="bg-paperorange w-full font-bold text-black text-2xl py-2 lg:py-4 border-black border-b-2">
+        開始閱讀
+      </button>
+    </Link>
+  );
+};
 const PreviewButton = ({ summary }: { summary: BookSummary }) => {
   const [modalShown, setModalShown] = useState(false);
 
@@ -77,10 +96,14 @@ const PreviewButton = ({ summary }: { summary: BookSummary }) => {
     <>
       {modalShown && (
         <div
-          className="modal-overlay fixed inset-0 bg-black/60 z-50 p-2 lg:py-10 overflow-y-scroll "
+          className="modal-overlay fixed inset-0 bg-black/60 z-50 pb-16 lg:py-8 overflow-y-scroll "
           onClick={handleOverlayClick}
         >
-          <div className=" bg-paperpink w-full max-w-6xl mx-auto">
+          <FlowtingButtons
+            bookId={summary._id}
+            chapterId={summary.chapters[0].chapterId}
+          />
+          <div className=" bg-paperpink w-full max-w-6xl mx-auto border-black border-2 lg:border-12">
             <div className="modal">
               <a
                 className="fixed top-2 right-2 bg-black p-1 lg:top-4 lg:right-2 cursor-pointer lg:p-2"
@@ -98,6 +121,15 @@ const PreviewButton = ({ summary }: { summary: BookSummary }) => {
                 <div className="text-center border border-black border-b-2 p-2 lg:p-4">
                   {summary.category}
                 </div>
+                <Link
+                  className="items-center hidden sm:flex"
+                  target="_blank"
+                  href={`/book/${summary._id}/chapter/${summary.chapters[0].chapterId}`}
+                >
+                  <button className="bg-paperorange grow font-bold text-black text-2xl py-2 lg:py-4 border-black border-b-2">
+                    開始閱讀
+                  </button>
+                </Link>
                 <div className="p-2 border border-black border-x-1 border-y-0 lg:p-4">
                   {summary.summary}
                 </div>

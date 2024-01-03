@@ -8,10 +8,14 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      borderWidth: {
+        "12": "12px",
+      },
       colors: {
         paper: "#F5F3ED",
         lightpurple: "#F5F6FC",
         paperpink: "#F1DED1",
+        paperorange: "#D96037",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
