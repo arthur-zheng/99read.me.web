@@ -1,15 +1,10 @@
 import React from "react";
+import { fetchJson } from "../../../../libs/fetchJson";
 
-// fetch based on url
-async function getData(url: string) {
-  const res = await fetch(url);
-  // The return value is *not* serialized
-  // You can return Date, Map, Set, etc.
-  if (!res.ok) {
-    // This will activate the closest `error.js` Error Boundary
-    throw new Error("Failed to fetch data");
-  }
-  return res.json();
+interface Chapter {
+  id: string;
+  content: [string];
+  chapterTitle: string;
 }
 
 const ChapterPage = async ({
@@ -17,9 +12,7 @@ const ChapterPage = async ({
 }: {
   params: { id: string; chapterId: string };
 }) => {
-  const chapter = await getData(
-    `http://localhost:5001/book/${id}/chapter/${chapterId}`
-  );
+  const chapter = await fetchJson<Chapter>(`/book/${id}/chapter/${chapterId}`);
 
   return (
     <div className="flex flex-col items-center">

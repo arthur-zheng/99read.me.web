@@ -10,6 +10,8 @@ const config: Config = {
     extend: {
       colors: {
         paper: "#F5F3ED",
+        lightpurple: "#F5F6FC",
+        paperpink: "#F1DED1",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

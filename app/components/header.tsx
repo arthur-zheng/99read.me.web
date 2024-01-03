@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 const Header = () => {
   return (
@@ -7,7 +8,15 @@ const Header = () => {
       <div className="flex items-stretch">
         <div className="flex grow pl-4 py-3 border-black border-r-2">
           <h1 className="text-2xl font-bold hover:underline">
-            <Link href="/">久久讀書</Link>
+            <Link href="/" className="flex gap-1">
+              <Image
+                width={32}
+                height={32}
+                src="/logo.jpg"
+                alt="Site logo of a racoon"
+              />
+              久久讀書
+            </Link>
           </h1>
         </div>
         <button className="grow-0 px-20 border-black border-r-2 hover:bg-black hover:text-white">

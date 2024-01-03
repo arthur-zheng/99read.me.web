@@ -2,28 +2,12 @@ import React from "react";
 // import Image from "next/image";
 // import StarsDisplay from "./starsDisplay";
 import Link from "next/link";
+import { fetchJson } from "../libs/fetchJson";
+import PreviewButton from "../components/preview";
+import { BookSummary } from "../libs/types";
 
-interface BookSummary {
-  _id: string;
-  title: string;
-  summary: string;
-  tags: string[];
-  author: string;
-  category: string;
-  chapters: {
-    title: string;
-    chapterId: string;
-    content: string[];
-  }[];
-  completed: boolean;
-  // rating: string;
-}
-
-interface BookListProps {
-  bookSummaries: BookSummary[];
-}
-
-const BookSummaryList: React.FC<BookListProps> = ({ bookSummaries }) => {
+const BookSummaryList = async () => {
+  const bookSummaries: BookSummary[] = await fetchJson("/");
   // listening to url change
   return (
     <div>
@@ -41,25 +25,24 @@ const BookSummaryList: React.FC<BookListProps> = ({ bookSummaries }) => {
             alt={`Book cover image for ${bookSummary.title}`}
           /> */}
           {/* DO NOT DELETE */}
-          <div className="pl-6 py-4 flex-auto">
+          <div className="lg:pl-6 lg:py-4 flex-auto">
             <div className="flex px-2 items-end">
               <div className="flex flex-auto text-xl pt-2 flex-col">
                 <div>
                   <Link
-                    className="text-3xl font-semibold hover:underline"
-                    href={`/book/${bookSummary._id}`}
+                    className="text-xl font-semibold hover:underline lg:text-xl"
+                    href={`/book/${bookSummary._id}/chapter/${bookSummary.chapters[0].chapterId}`}
                   >
                     {bookSummary.title}
                   </Link>
                   <span>{bookSummary.completed ? "（完結）" : "（連載）"}</span>
-                  <span></span>
                   {/* TODO: Author page */}
                   {/* <Link
                     className="pl-2 hover:underline"
                     href={`/author/${bookSummary.author}`}
                   >{` (${bookSummary.author})`}</Link> */}
                 </div>
-                <div>
+                <div className="font-bold text-base lg:text-lg py-1 lg:py-2">
                   {bookSummary.chapters.length}
                   {"章 "}
                   {/* TODO: Rating */}
@@ -76,14 +59,10 @@ const BookSummaryList: React.FC<BookListProps> = ({ bookSummaries }) => {
               </div>
             </div>
             <p className="p-2 pt-0 text-lg text-justify">
-              {bookSummary.summary}
-              <Link
-                className="underline ml-2 border-black border-1"
-                target="_blank"
-                href={`/book/${bookSummary._id}/chapter/${bookSummary.chapters[0].chapterId}`}
-              >
-                開始閱讀↗
-              </Link>
+              {bookSummary.summary.length > 80
+                ? bookSummary.summary.slice(0, 80) + "..."
+                : bookSummary.summary}
+              <PreviewButton summary={bookSummary} />
             </p>
           </div>
         </div>
