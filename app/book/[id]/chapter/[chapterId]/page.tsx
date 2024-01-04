@@ -28,7 +28,7 @@ const ChapterPage = async ({
           </div>
           <div className="text-xl">
             {chapter.content.map((paragraphTxt: string, index: number) => (
-              <p className="pb-6" key={index}>
+              <p className="pb-6 text-justify" key={index}>
                 {paragraphTxt}
               </p>
             ))}
