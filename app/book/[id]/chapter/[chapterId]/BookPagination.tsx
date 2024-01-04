@@ -32,7 +32,7 @@ export const BookPagination = ({
   return (
     <div className="flex flex-wrap justify-between items-center border-black border-y-2">
       <button
-        className="bg-black text-paperpink px-4 py-2"
+        className="bg-black text-paperpink px-8 py-3"
         onClick={goToPreviousPage}
         disabled={currentPage === 0}
       >
@@ -42,7 +42,7 @@ export const BookPagination = ({
         第 {currentPage + 1} 頁 / 共 {totalPages} 頁
       </span>
       <button
-        className="bg-black text-paperpink px-4 py-2"
+        className="bg-black text-paperpink px-8 py-3"
         onClick={goToNextPage}
         disabled={isLast === true}
       >
