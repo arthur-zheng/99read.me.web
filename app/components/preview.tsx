@@ -60,7 +60,7 @@ const FlowtingButtons = ({
       target="_blank"
       href={`/book/${bookId}/chapter/${chapterId}`}
     >
-      <button className="bg-paperorange w-full font-bold text-black text-2xl py-2 lg:py-4 border-black border-b-2">
+      <button className="bg-paperorange w-full font-bold text-black text-2xl py-2 lg:py-4 border-black border-t-2">
         開始閱讀
       </button>
     </Link>
@@ -73,6 +73,13 @@ const PreviewButton = ({ summary }: { summary: BookSummary }) => {
     if (modalShown) document.body.style.overflow = "hidden";
     else document.body.style.overflow = "auto";
   }, [modalShown]);
+
+  // This is especially helpful when we remove target="_blank"
+  useEffect(() => {
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, []);
 
   const toggleModal = () => {
     setModalShown(!modalShown);
@@ -87,7 +94,6 @@ const PreviewButton = ({ summary }: { summary: BookSummary }) => {
   const handleOverlayClick = (event: React.MouseEvent<HTMLDivElement>) => {
     const target = event.target as HTMLDivElement;
     if (target.classList.contains("modal-overlay")) {
-      console.log("aaaaa");
       closeModal(); // Close the modal if the click is on the background
     }
   };
@@ -123,7 +129,7 @@ const PreviewButton = ({ summary }: { summary: BookSummary }) => {
                 </div>
                 <Link
                   className="items-center hidden sm:flex"
-                  target="_blank"
+                  // target="_blank"
                   href={`/book/${summary._id}/chapter/${summary.chapters[0].chapterId}`}
                 >
                   <button className="bg-paperorange grow font-bold text-black text-2xl py-2 lg:py-4 border-black border-b-2">
@@ -152,7 +158,7 @@ const PreviewButton = ({ summary }: { summary: BookSummary }) => {
         className="underline ml-2 border-black border-1"
         onClick={toggleModal}
       >
-        預覽
+        詳情
       </button>
     </>
   );
