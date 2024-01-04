@@ -19,18 +19,18 @@ const Header = () => {
             </Link>
           </h1>
         </div>
-        <button className="grow-0 px-20 border-black border-r-2 hover:bg-black hover:text-white">
+        {/* <button className="px-4 border-black border-r-2 hover:bg-black hover:text-white">
           搜尋
         </button>
-        <button className="grow-0 px-20 border-black border-r-2 hover:bg-black hover:text-white">
+        <button className="px-4 border-black border-r-2 hover:bg-black hover:text-white">
           登錄
         </button>
-        <button className="px-5 bg-black text-white hover:bg-black hover:text-white">
+        <button className="px-4 bg-black text-white hover:bg-black hover:text-white">
           繁
         </button>
-        <button className="border-black border-l-2 px-5 hover:bg-black hover:text-white">
+        <button className="px-2 border-black border-l-2 hover:bg-black hover:text-white">
           简
-        </button>
+        </button> */}
       </div>
     </header>
   );
