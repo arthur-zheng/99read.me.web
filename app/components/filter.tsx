@@ -6,28 +6,28 @@ import { Toggle } from "./toggle";
 const categories = [
   { tag: "全部", value: "quanbu" },
   { tag: "言情", value: "yanqing" },
-  { tag: "武俠", value: "wuxia" },
-  { tag: "玄幻", value: "xuanhuan" },
-  { tag: "推理", value: "tuili" },
+  // { tag: "武俠", value: "wuxia" },
+  // { tag: "玄幻", value: "xuanhuan" },
+  // { tag: "推理", value: "tuili" },
   { tag: "耽美", value: "danmei" },
   { tag: "百合", value: "baihe" },
-  { tag: "恐怖", value: "kongbu" },
-  { tag: "科幻", value: "kehuan" },
-  { tag: "歷史", value: "lishi" },
-  { tag: "軍事", value: "junshi" },
-  { tag: "生活", value: "shenghuo" },
-  { tag: "學習", value: "xuexi" },
-  { tag: "系統", value: "xitong" },
-  { tag: "文學", value: "wenxue" },
-  { tag: "其它", value: "qita" },
+  // { tag: "恐怖", value: "kongbu" },
+  // { tag: "科幻", value: "kehuan" },
+  // { tag: "歷史", value: "lishi" },
+  // { tag: "軍事", value: "junshi" },
+  // { tag: "生活", value: "shenghuo" },
+  // { tag: "學習", value: "xuexi" },
+  // { tag: "系統", value: "xitong" },
+  // { tag: "文學", value: "wenxue" },
+  // { tag: "其它", value: "qita" },
 ];
 
 const ranks = [
   { tag: "全部", value: "quanbu" },
-  { tag: "週榜", value: "zhoubang" },
-  { tag: "月榜", value: "yuebang" },
-  { tag: "最人氣", value: "zuirenqi" },
-  { tag: "經典", value: "jingdian" },
+  // { tag: "週榜", value: "zhoubang" },
+  // { tag: "月榜", value: "yuebang" },
+  // { tag: "最人氣", value: "zuirenqi" },
+  // { tag: "經典", value: "jingdian" },
 ];
 
 const Filter = () => {
@@ -63,7 +63,7 @@ const Filter = () => {
 
   return (
     <div className="border-black border-b-1">
-      <div className="flex border-black border-b-2">
+      <div className="flex flex-wrap border-black border-b-2">
         {categories.map((category, index) => (
           <Toggle
             key={index}
