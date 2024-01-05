@@ -155,7 +155,7 @@ const PreviewButton = ({ summary }: { summary: BookSummary }) => {
         </div>
       )}
       <button
-        className="underline ml-2 border-black border-1"
+        className="underline ml-2 border-black border-1 font-bold"
         onClick={toggleModal}
       >
         詳情

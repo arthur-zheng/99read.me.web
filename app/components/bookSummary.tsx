@@ -4,6 +4,7 @@ import React from "react";
 import Link from "next/link";
 import PreviewButton from "../components/preview";
 import { BookSummary as BookSummaryType } from "../libs/types";
+// import { EyeIcon } from "../libs/icons";
 
 export const BookSummary = async ({
   bookSummary,
@@ -24,28 +25,35 @@ export const BookSummary = async ({
       <div className="lg:pl-6 lg:py-4 flex-auto">
         <div className="flex px-2 items-end">
           <div className="flex flex-auto text-xl pt-2 flex-col">
-            <div>
+            <div className="flex flex-wrap items-end gap-1">
               <Link
-                className="text-xl font-semibold hover:underline lg:text-xl"
+                className="text-2xl font-semibold hover:underline lg:text-2xl"
                 href={`/book/${bookSummary._id}/chapter/${bookSummary.chapters[0].chapterId}`}
               >
                 {bookSummary.title}
               </Link>
-              <span>{bookSummary.completed ? "（完結）" : "（連載）"}</span>
+              <span className="text-base">
+                {` (${bookSummary.author},${
+                  bookSummary.completed ? " 完結" : " 連載"
+                }${bookSummary.chapters.length}章)`}
+              </span>
+              {/* <EyeIcon />
+              {"123"} */}
+              <span></span>
+              {/* TODO: Rating */}
+              {/* <StarsDisplay count={parseInt("5")} /> */}
               {/* TODO: Author page */}
               {/* <Link
                     className="pl-2 hover:underline"
                     href={`/author/${bookSummary.author}`}
                   >{` (${bookSummary.author})`}</Link> */}
             </div>
-            <div className="font-bold text-base lg:text-lg py-1 lg:py-2">
-              {bookSummary.chapters.length}
-              {"章 "}
-              {/* TODO: Rating */}
-              {/* <StarsDisplay count={parseInt("5")} /> */}
-              {bookSummary.category} {bookSummary.tags.length !== 0 && " | "}
+            <div className="text-base font-bold lg:text-lg py-1 lg:py-2">
+              {`#${bookSummary.category}`}{" "}
+              {/* {bookSummary.tags.length !== 0 && " | "} */}
               {bookSummary.tags.map((tag, index, arr) => (
                 <span className="inline-block py-2" key={index}>
+                  {"#"}
                   {tag}
                   {index !== arr.length - 1 && ","}
                 </span>
