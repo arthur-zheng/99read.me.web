@@ -129,7 +129,7 @@ const PreviewButton = ({ summary }: { summary: BookSummary }) => {
                 </div>
                 <Link
                   className="items-center hidden sm:flex"
-                  // target="_blank"
+                  target="_blank"
                   href={`/book/${summary._id}/chapter/${summary.chapters[0].chapterId}`}
                 >
                   <button className="bg-paperorange grow font-bold text-black text-2xl py-2 lg:py-4 border-black border-b-2">
