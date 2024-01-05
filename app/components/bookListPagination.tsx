@@ -25,7 +25,7 @@ export const BookListPagination = ({
           上一頁
         </Link>
       ) : (
-        <div className="bg-black/50 text-paperpink px-12 py-3 border-black border-l-2">
+        <div className="bg-black/50 text-paperpink px-8 py-3 border-black border-l-2">
           已是第一頁
         </div>
       )}
@@ -38,7 +38,7 @@ export const BookListPagination = ({
           下一頁
         </Link>
       ) : (
-        <div className="bg-black/50 text-paperpink px-12 py-3 border-black border-l-2">
+        <div className="bg-black/50 text-paperpink px-8 py-3 border-black border-l-2">
           已是最後一頁
         </div>
       )}

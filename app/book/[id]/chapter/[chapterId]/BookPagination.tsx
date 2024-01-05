@@ -39,14 +39,14 @@ export const BookPagination = ({
         上一頁
       </button>
       <span>
-        第 {currentPage + 1} 頁 / 共 {totalPages} 頁
+        第 {currentPage + 1} / {totalPages} 頁
       </span>
       <button
         className="bg-black text-paperpink px-8 py-3"
         onClick={goToNextPage}
         disabled={isLast === true}
       >
-        下一頁
+        {isLast ? "本書完" : "下一頁"}
       </button>
     </div>
   );
