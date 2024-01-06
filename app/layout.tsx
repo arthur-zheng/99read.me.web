@@ -10,8 +10,33 @@ const inter = Inter({ subsets: ["latin"] });
 // TODO: add book name inside title like: 久久閱讀-千秋夢
 // TODO: add page number inside description
 export const metadata: Metadata = {
-  title: "久久讀書",
-  description: "最全小說免費讀",
+  title: "久久讀書，小说全本免费阅读，穿越，耽美，百合",
+  description:
+    "本站提供最全小说在线阅读，极佳操作体验。百合，耽美，穿越小说，完全免费,完美支持各种掌上PC终端移动阅读,欢迎广大书友留言讨论。",
+  authors: [{ name: "priest" }, { name: "顾漫" }, { name: "墨香铜臭" }],
+  category: "小说",
+  keywords: [
+    "网络小说",
+    "免费读",
+    "耽美小说",
+    "百合小说",
+    "穿越小说",
+    "天官赐福小说",
+    "纯爱小说",
+  ],
+  // robots: {
+  //   index: true,
+  //   follow: false,
+  //   nocache: true,
+  //   googleBot: {
+  //     index: false,
+  //     follow: false,
+  //     noimageindex: true,
+  //     "max-video-preview": -1,
+  //     "max-image-preview": "large",
+  //     "max-snippet": -1,
+  //   },
+  // },
 };
 
 export default function RootLayout({
@@ -21,6 +46,41 @@ export default function RootLayout({
 }) {
   return (
     <html className="bg-paperpink" lang="en">
+      <head>
+        {/* From zhenhunxiaoshuo.com */}
+        <meta httpEquiv="content-language" content="zh-CN" />
+        {/* disable user scaling is agaist accessibility */}
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0"
+        ></meta>
+        <meta name="applicable-device" content="pc,mobile" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta
+          name="apple-mobile-web-app-status-bar-style"
+          content="black"
+        ></meta>
+        <meta
+          property="og:image"
+          content="https://www.99read.me/logo.jpg"
+        ></meta>
+        {/* <!-- 安卓平台 chrome --> */}
+        <meta name="mobile-web-app-capable" content="yes" />
+        <link rel="icon" sizes="192x192" href="/logo.jpg" />
+        {/* <!--  ios平台 safari --> */}
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <meta name="apple-mobile-web-app-title" content="久久小说网" />
+        <link rel="apple-touch-icon-precomposed" href="/logo.jpg" />
+        {/* <!--  win8以上 平台 磁贴 --> */}
+        <meta name="msapplication-TileImage" content="/logo.jpg" />
+        <meta name="msapplication-TileColor" content="#0e90d2" />
+
+        <meta name="mobile-web-app-capable" content="yes" />
+        <link rel="icon" sizes="192x192" href="/logo.jpg" />
+        {/* from 思兔 */}
+        <meta name="robots" content="noarchive" />
+      </head>
       <body className={inter.className}>
         <Header />
         {children}
@@ -38,15 +98,6 @@ export default function RootLayout({
           gtag('config', '${process.env.GA_MEASUREMENT_ID}');
         `}
       </Script>
-
-      {/* <Script id="google-analytics">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', ${process.env.GA_MEASUREMENT_ID});
-        `}
-      </Script> */}
     </html>
   );
 }
