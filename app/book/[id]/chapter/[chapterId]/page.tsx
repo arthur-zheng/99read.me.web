@@ -22,11 +22,11 @@ const ChapterPage = async ({
   return (
     <>
       <div className="flex flex-col items-center">
-        <div className="max-w-5xl px-4 pt-10">
-          <div className="text-center text-4xl font-bold pb-6">
-            {chapter.chapterTitle}
+        <div className="max-w-5xl py-4">
+          <div className="text-center text-2xl font-bold pb-6">
+            {`《${bookSummary.title}》-`} {chapter.chapterTitle}
           </div>
-          <div className="text-xl">
+          <div className="text-xl px-4">
             {chapter.content.map((paragraphTxt: string, index: number) => (
               <p className="pb-6 text-justify" key={index}>
                 {paragraphTxt}
