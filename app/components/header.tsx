@@ -19,16 +19,16 @@ const Header = () => {
             </Link>
           </h1>
         </div>
-        {/* <button className="px-4 border-black border-r-2 hover:bg-black hover:text-white">
+        {/* <button className="px-4 border-black border-r-2 hover:bg-black hover:text-white" alt="搜索按钮">
           搜尋
         </button>
-        <button className="px-4 border-black border-r-2 hover:bg-black hover:text-white">
+        <button className="px-4 border-black border-r-2 hover:bg-black hover:text-white" alt="登陆按钮">
           登錄
         </button>
-        <button className="px-4 bg-black text-white hover:bg-black hover:text-white">
+        <button className="px-4 bg-black text-white hover:bg-black hover:text-white" alt="登陆按钮">
           繁
         </button>
-        <button className="px-2 border-black border-l-2 hover:bg-black hover:text-white">
+        <button className="px-2 border-black border-l-2 hover:bg-black hover:text-white" alt="登陆按钮">
           简
         </button> */}
       </div>
