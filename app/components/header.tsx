@@ -6,7 +6,7 @@ const Header = () => {
   return (
     <header className="relative mx-auto border-black border-b-2">
       <div className="flex items-stretch">
-        <div className="flex grow pl-4 py-3 border-black border-r-2">
+        <div className="flex grow pl-4 py-3 border-black">
           <h1 className="text-2xl font-bold hover:underline">
             <Link href="/" className="flex gap-1">
               <Image
