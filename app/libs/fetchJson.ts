@@ -1,6 +1,6 @@
 // const PROD_ENDPOINT = "https://www.99read.me:5001";
-const DEV_ENDPOINT = "http://localhost:5001";
-const PROD_ENDPOINT = "http://localhost:5001";
+const DEV_ENDPOINT = "http://127.0.0.1:5001";
+const PROD_ENDPOINT = "http://127.0.0.1:5001";
 
 // fetch based on url
 export async function fetchJson<T>(url: string): Promise<T> {
