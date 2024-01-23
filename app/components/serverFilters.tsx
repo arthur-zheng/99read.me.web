@@ -8,7 +8,10 @@ export const ServerFilters = ({ category }: { category: string }) => {
       <div className="flex flex-wrap border-black">
         {CATEGORIES.map((cat, index) => {
           const classes =
-            "px-4 py-2" + (cat.tag === category ? " bg-black text-white" : "");
+            "px-4 py-2" +
+            (cat.tag === category
+              ? " bg-black text-white"
+              : " hover:bg-black hover:text-white");
           return (
             <Link key={index} className={classes} href={`?category=${cat.tag}`}>
               {cat.tag}
