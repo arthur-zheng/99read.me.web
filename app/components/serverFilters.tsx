@@ -9,11 +9,15 @@ export const ServerFilters = ({ category }: { category: string }) => {
         {CATEGORIES.map((cat, index) => {
           const classes =
             "px-4 py-2" +
-            (cat.tag === category
+            (cat.value === category
               ? " bg-black text-white"
               : " hover:bg-black hover:text-white");
           return (
-            <Link key={index} className={classes} href={`?category=${cat.tag}`}>
+            <Link
+              key={index}
+              className={classes}
+              href={`?category=${cat.value}`}
+            >
               {cat.tag}
             </Link>
           );

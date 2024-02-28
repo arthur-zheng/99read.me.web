@@ -11,7 +11,7 @@ export default async function Home({
 }) {
   const limit = parseInt(searchParams.limit || "", 10) || 20;
   const skip = parseInt(searchParams.skip || "", 10) || 0;
-  const category = searchParams.category || "全部";
+  const category = searchParams.category || "quanbu";
 
   const bookSummaries: BookSummaryType[] = await fetchJson(
     `/?limit=${limit}&skip=${skip}&category=${category}`
