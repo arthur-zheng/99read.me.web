@@ -28,14 +28,14 @@ export const BookSummary = async ({
             <div className="flex flex-wrap items-end gap-1">
               <Link
                 className="text-2xl font-semibold hover:underline lg:text-2xl"
-                href={`/book/${bookSummary._id}/chapter/${bookSummary.chapters[0].chapterId}`}
+                href={`/book/${bookSummary._id}/chapter/${bookSummary?.chapters[0]?.chapterId}`}
               >
                 {bookSummary.title}
               </Link>
               <span className="text-base">
                 {` (${bookSummary.author},${
                   bookSummary.completed ? " 完結" : " 連載"
-                }${bookSummary.chapters.length}章)`}
+                }${bookSummary?.chapters?.length}章)`}
               </span>
               {/* <EyeIcon />
               {"123"} */}
