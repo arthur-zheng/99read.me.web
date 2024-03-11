@@ -1,6 +1,6 @@
 import React from "react";
-import { BookSummary as BookSummaryType } from "../libs/types";
-import { BookSummary as BookSummaryComp } from "./bookSummary";
+import { BookSummaryType } from "../libs/types";
+import { BookSummaryListItem } from "./bookSummaryListItem";
 
 const BookSummaryList = async ({
   bookSummaries,
@@ -15,7 +15,7 @@ const BookSummaryList = async ({
             key={index}
             className="flex items-stretch border-t-2 border-black"
           >
-            <BookSummaryComp bookSummary={bookSummary} />
+            <BookSummaryListItem bookSummary={bookSummary} />
           </div>
         ))}
       </div>

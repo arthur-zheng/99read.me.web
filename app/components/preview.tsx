@@ -1,8 +1,9 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { BookSummary } from "../libs/types";
+import { BookSummaryType } from "../libs/types";
 import Link from "next/link";
+import { BookSummary } from "./bookSummary";
 
 const CloseIcon = () => {
   return (
@@ -25,28 +26,6 @@ const CloseIcon = () => {
   );
 };
 
-const ChapterButon = ({
-  bookId,
-  chapterId,
-  chapterTitle,
-}: {
-  bookId: string;
-  chapterId: string;
-  chapterTitle: string;
-}) => {
-  return (
-    <Link
-      className="text-lg sm:text-lg border border-black"
-      target="_blank"
-      href={`/book/${bookId}/chapter/${chapterId}`}
-    >
-      <div className="flex items-center hover:bg-black/10 pl-2 lg:pl-4 py-1 lg:py-3">
-        {chapterTitle}
-      </div>
-    </Link>
-  );
-};
-
 const FlowtingButtons = ({
   bookId,
   chapterId,
@@ -66,7 +45,7 @@ const FlowtingButtons = ({
     </Link>
   );
 };
-const PreviewButton = ({ summary }: { summary: BookSummary }) => {
+const PreviewButton = ({ summary }: { summary: BookSummaryType }) => {
   const [modalShown, setModalShown] = useState(false);
 
   useEffect(() => {
@@ -117,39 +96,8 @@ const PreviewButton = ({ summary }: { summary: BookSummary }) => {
               >
                 <CloseIcon />
               </a>
-              <div className="modal-content flex flex-wrap flex-col">
-                <h2 className="text-center text-3xl font-bold border border-black p-2 lg:p-4 lg:text-4xl">
-                  {summary.title}
-                </h2>
-                <div className="text-center font-semi-bold border border-black p-2 lg:p-4 lg:text-2xl">
-                  作者：{summary.author}
-                </div>
-                <div className="text-center border border-black border-b-2 p-2 lg:p-4">
-                  {summary.category}
-                </div>
-                <Link
-                  className="items-center hidden sm:flex"
-                  target="_blank"
-                  href={`/book/${summary._id}/chapter/${summary.chapters[0].chapterId}`}
-                >
-                  <button className="bg-paperorange grow font-bold text-black text-2xl py-2 lg:py-4 border-black border-b-2">
-                    開始閱讀
-                  </button>
-                </Link>
-                <div className="p-2 border border-black border-x-1 border-y-0 lg:p-4">
-                  {summary.summary}
-                </div>
-                <div className="grid border-black border-y-[1px] lg:grid-cols-3">
-                  {summary.chapters.map((c, index) => (
-                    <ChapterButon
-                      key={index}
-                      chapterTitle={c.chapterTitle}
-                      chapterId={c.chapterId}
-                      bookId={summary._id}
-                    />
-                  ))}
-                </div>
-              </div>
+              <BookSummary summary={summary} />
+              <div className="modal-content flex flex-wrap flex-col"></div>
             </div>
           </div>
         </div>

@@ -1,7 +1,7 @@
 import BookSummaryList from "./components/bookSummaryList";
 import { ServerFilters } from "./components/serverFilters";
 import { BookListPagination } from "./components/bookListPagination";
-import { BookSummary as BookSummaryType } from "./libs/types";
+import { BookSummaryType } from "./libs/types";
 import { fetchJson } from "./libs/fetchJson";
 
 export default async function Home({

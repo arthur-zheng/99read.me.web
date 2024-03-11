@@ -1,24 +1,19 @@
 import React from "react";
 import { fetchJson } from "@/app/libs/fetchJson";
-import { BookSummary } from "@/app/libs/types";
+import { BookSummaryType } from "@/app/libs/types";
 import { BookPagination } from "@/app/book/[id]/chapter/[chapterId]/BookPagination";
 import { ContextMenu } from "./contextMenu";
-
-interface Chapter {
-  id: string;
-  content: [string];
-  chapterTitle: string;
-  chapterNumber: number;
-  isLast?: boolean;
-}
+import { ChapterType } from "@/app/libs/types";
 
 const ChapterPage = async ({
   params: { id, chapterId },
 }: {
   params: { id: string; chapterId: string };
 }) => {
-  const chapter = await fetchJson<Chapter>(`/book/${id}/chapter/${chapterId}`);
-  const bookSummary = await fetchJson<BookSummary>(`/book/${id}`);
+  const chapter = await fetchJson<ChapterType>(
+    `/book/${id}/chapter/${chapterId}`
+  );
+  const bookSummary = await fetchJson<BookSummaryType>(`/book/${id}`);
 
   return (
     <>
