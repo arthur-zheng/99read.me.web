@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import React from "react";
-import { BookSummary as BookSummaryType } from "@/app/libs/types";
+import { BookSummaryType } from "@/app/libs/types";
 
 export const BookPagination = ({
   bookSummary,
