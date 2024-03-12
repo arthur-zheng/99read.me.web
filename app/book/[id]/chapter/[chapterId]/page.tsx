@@ -3,7 +3,23 @@ import { fetchJson } from "@/app/libs/fetchJson";
 import { BookSummaryType } from "@/app/libs/types";
 import { BookPagination } from "@/app/book/[id]/chapter/[chapterId]/BookPagination";
 import { ContextMenu } from "./contextMenu";
-import { ChapterType } from "@/app/libs/types";
+import { ChapterType, GenerateMetadataPropType } from "@/app/libs/types";
+import { Metadata } from "next";
+
+export async function generateMetadata({
+  params,
+}: GenerateMetadataPropType): Promise<Metadata> {
+  // read route params
+  const id = params.id;
+  const chapterId = params.chapterId;
+  const chapter = await fetchJson<ChapterType>(
+    `/book/${id}/chapter/${chapterId}`
+  );
+  const bookSummary = await fetchJson<BookSummaryType>(`/book/${id}`);
+  return {
+    title: `《${bookSummary.title}》作者：${bookSummary.author}，${chapter.chapterTitle}，全文在线阅读，久久读书`,
+  };
+}
 
 const ChapterPage = async ({
   params: { id, chapterId },

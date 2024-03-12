@@ -24,3 +24,8 @@ export type ChapterType = {
   chapterNumber: number;
   isLast?: boolean;
 };
+
+export type GenerateMetadataPropType = {
+  params: { id: string; chapterId: string };
+  searchParams: { [key: string]: string | string[] | undefined };
+};

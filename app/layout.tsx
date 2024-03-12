@@ -7,10 +7,8 @@ import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"] });
 
-// TODO: add book name inside title like: 久久閱讀-千秋夢
-// TODO: add page number inside description
 export const metadata: Metadata = {
-  title: "久久讀書，小说全本免费阅读，穿越，耽美，百合",
+  title: "久久读书，小说全本免费阅读，穿越，耽美，百合",
   description:
     "本站提供最全小说在线阅读，极佳操作体验。百合，耽美，穿越小说，完全免费,完美支持各种掌上PC终端移动阅读,欢迎广大书友留言讨论。",
   authors: [{ name: "priest" }, { name: "顾漫" }, { name: "墨香铜臭" }],
